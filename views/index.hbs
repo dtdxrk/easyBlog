@@ -1,0 +1,32 @@
+<div class="search">
+	<input id="search" type="text" placeholder="SEARCH">
+	<input id="button" type="button" value="搜索">
+</div>
+
+{{#each data}}
+<div class="list">
+	<h3>{{title}}</h3>
+	<p>
+		作者：{{author}} | 日期：{{creatTime}} 
+		{{!-- 是否是作者本人 --}}
+		{{#if_equal author ../session.user.username}} | <a href="/post?id={{_id}}">修改</a> | <a href="/post/del?id={{_id}}">删除</a></p>{{/if_equal}}
+	</p>
+	
+	<p class="con">{{article}}</p>
+</div>
+{{/each}}
+
+{{!-- 翻页组件 --}}
+{{#hp_page page}}{{/hp_page}}
+
+<script>
+	/*提交*/
+		$('#button').click(search);
+
+		function search(){
+			if($('#search').val()==''){
+				return alert('搜索内容不能为空!');
+			}
+			return window.location.href = '/search?key='+$('#search').val();
+		}
+</script>

@@ -1,0 +1,28 @@
+<div class="reg">
+	<p>账号 <input id="username" type="text" placeholder="输入用户名"></p>
+	<p>密码 <input id="password" type="password" placeholder="输入密码"></p>
+	<p><input id="button" type="button" value="完成注册"></p>
+</div>
+
+<script>
+	/*提交*/
+	$('#button').click(reg);
+
+	function reg(){
+		if($('#username').val()=='' || $('#password').val()==''){
+			return alert('用户名或密码不能为空!');
+		}
+		$.post('/reg',{
+			username:$('#username').val(),
+			password:$('#password').val()
+		},function(res) {
+			if(res && res.message){
+				alert(res.message)
+				if(res.status==200){
+					window.location.href = '/';
+				}
+			}
+
+		});
+	}
+</script>

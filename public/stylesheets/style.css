@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+.head{line-height: 1.8}
+
+
+/*index*/
+.list{line-height: 1.8;border-bottom: 1px solid #ccc;}
+
+.nothing{font-size: 14px;color: #666;padding:20px 0;}
+
+/*page*/
+.page {margin-top: 50px;}
+.page a{padding:2px 5px;border:1px solid #ccc;margin:5px;}
+.page .on{background-color: #ccc;color: #fff;}
