@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src='/javascripts/zepto.min.js'></script>
+  </head>
+  <body>
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+    
+    {{#if session.user}}
+  	<div class="head">
+      <a href="/">首页</a> |
+      {{session.user.username}}-<a href="/post">发表文章</a> |
+      <a href="/login/out">退出</a>
+    </div>
+    {{else}}
+    <div class="head">
+      <a href="/">首页</a> |
+      <a href="/login">登陆</a> |
+      <a href="/reg">注册</a>
+    </div>
+    {{/if}}
+
+
+    {{{body}}}
+  </body>
+</html>

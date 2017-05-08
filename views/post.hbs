@@ -1,0 +1,28 @@
+{{#data}}
+<div class="post">
+	<input type="hidden" id="_id" value="{{_id}}">
+	<p>标题 <input id="title" type="text" placeholder="输入标题" value="{{title}}"></p>
+	<p><textarea id="article" rows="5" cols="50" placeholder="正文" >{{article}}</textarea></p>
+	<p><input id="button" type="button" value="发表"></p>
+</div>
+{{/data}}
+
+<script>
+	/*提交*/
+	$('#button').click(login);
+
+	function login(){
+		if($('#title').val()=='' || $('#article').val()==''){
+			return alert('标题或正文不能为空!');
+		}
+		$.post('/post?id='+$('#_id').val(),{
+			title:$('#title').val(),
+			article:$('#article').val()
+		},function(res) {
+			if(res && res.message){
+				alert(res.message)
+			}
+
+		});
+	}
+</script>
